@@ -3,6 +3,20 @@
 - In density-guided simulations, additional forces are applied to atoms that depend on the gradient of similarity between a simulated density and a reference density. (GROMACS)
 - Force calculations are based on computing a simulated density and its derivative with respect to the atoms positions, as well as a density-density derivative between the simulated and the reference density (GROMACS)
 
+### Relative Entropy- Mathematics Overview ###
+- Forces are dependent on:
+	- foward model (atom positions translated into simulated density, p_sim(r))
+	- similarity measure that describes how close the simulated density is to the reference density
+	- forces scaled by force constant, k
+- Effective potential energy is result
+	- U = U_forcefield(r) - kS[p_ref, p_sim(r)]
+	- S = similarity measure
+- Corresponding density based forces that are added to simulation are:
+	- F_density = k(∇r)S[p_ref, p_sim(r)]
+	- This derivative decomposes into a similarity measure derivative and a simulated density model derivative, summed over all density voxels
+
+### Understanding Simulated Density's Force Contribution ###
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
 ### Original implementation notes ###
 Gridforce notes:
