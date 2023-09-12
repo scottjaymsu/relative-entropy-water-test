@@ -25,35 +25,35 @@ disposePositions(c)(CollectionMaster.C)
 Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
-### Collection / Creation ###
-
+### collection / CREATE ###
 - The grid is being resized between each iteration using VMD's grid calculation code 
 	- GridForceGrid.C
 	- "scaled" radius, which is the "real" radius * 0.2 * resolution
 	- Overall grid scaling would come from gridforcescale.
 
-### Submit Positions
-- " "
+### submitPositions / READ ###
+- Atom positions are submitted and sent to collection to be received 
 	- Sequencer.C
-	- The idea is to "turn off" the integration for doing performance profiling in order to get an upper bound on the speedup available by moving the integration parts to the GPU.
+	- The UPPER_BOUND macro is used to eliminate all of the per atom computation done for the numerical integration in Sequencer::integrate() other than the actual force computation and atom migration.
+		- Purpose of Sequencer::integrate()? 
+			- Determining net force on each atom?
+		- The idea is to "turn off" the integration for doing performance profiling in order to get an upper bound on the speedup available by moving the integration parts to the GPU.
+
+### receivePositions / READ ###
+- ' '
+	- CollectionMgr.C
+
+### disposePositions / UPDATE ###
+
+### Output.C 
 
 
 
-1. **CREATE** atom coords data structure/ **READ** atom coordinates
-- readCoords
-	- #include <fstream>
-	- #include <map>
-	- create atom_coords in std::map<int, std::pair<int, int>> 		*map[x: [y,z]]*
-	- create fstream object 										*ofstream MyFile("");* 
-	- read pbc_info variable from fstream object lines [-3:] 		*publication info*
-	- read atoms variable from fstream object lines [:-3] 			*atom coords (y,z)*
-	- update coordinates in atom_coords map							*map[x: [y,z]]*
-		- for i < atoms.size() {
-			atom_coords.insert(i, std::pair())
-		}
 
-2. **CREATE** atom selection 
+
+<!-- 2. **CREATE** atom selection 
 3. **CREATE** molecule
 4. calcForce function returns idxs and foces 
 5. store forces 
 6. write external forces to data file
+ -->
