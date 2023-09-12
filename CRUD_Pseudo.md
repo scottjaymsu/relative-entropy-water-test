@@ -4,7 +4,7 @@
 ### calcforce.py -> .cpp CRUD ###
 
 
-1. **CREATE** atom coords data structure/ **READ atom coordinates**
+1. **CREATE** atom coords data structure/ **READ** atom coordinates
 - readCoords
 	- #include <fstream>
 	- #include <map>
