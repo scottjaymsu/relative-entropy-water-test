@@ -1,5 +1,9 @@
 # relative-entropy-water-test
+### Relative Entropy- Applying forces from 3-dimensional density ###
+- In density-guided simulations, additional forces are applied to atoms that depend on the gradient of similarity between a simulated density and a reference density. (GROMACS)
+- Force calculations are based on computing a simulated density and its derivative with respect to the atoms positions, as well as a density-density derivative between the simulated and the reference density (GROMACS)
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
 ### Original implementation notes ###
 Gridforce notes:
 We are building the relative entropy implementation from GROMACS.
@@ -54,9 +58,13 @@ Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 
 
 ### disposePositions / UPDATE ###
+- 
+	- CollectionMaster.h / CollectionMaster.C
+		- class CollectVectorInstance
+		- class CollectVectorSequence
 
 ### Output.C 
-
+- Object outputs the data collected on the master node (CollectionMaster)
 
 
 
