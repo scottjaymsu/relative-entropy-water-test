@@ -42,6 +42,15 @@ Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 ### receivePositions / READ ###
 - ' '
 	- CollectionMgr.C
+	- 1. records the dest output rank of each atom 
+	- 2. Distribute the atoms to the corresponding output 			process	
+	- 1 and 2 are neeeded for positions and velocities
+	- submitVelocities, submitForces, submitPositions
+	 	- velocities, forces, and positions are calculated
+	- sendDataStream & receiveDataStream
+		- instances received using: CProxy_CollectionMaster cm(master); 
+		- CollectionMaster.h
+
 
 ### disposePositions / UPDATE ###
 
