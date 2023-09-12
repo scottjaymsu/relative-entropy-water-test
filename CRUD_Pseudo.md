@@ -40,7 +40,8 @@ Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 		- The idea is to "turn off" the integration for doing performance profiling in order to get an upper bound on the speedup available by moving the integration parts to the GPU.
 
 ### receivePositions / READ ###
-- ' '
+- CollectionMgr is created to calculate velocities, forces, and positions of each atom based on dest output rank
+- Instance is this used to sendDataStream to be received by CollectionMaster object
 	- CollectionMgr.C
 	- 1. records the dest output rank of each atom 
 	- 2. Distribute the atoms to the corresponding output 			process	
