@@ -1,4 +1,9 @@
 # relative-entropy-water-test
+### Notes for later 
+- Test if program runs correctly on one processor 
+- Then, potentially use multi-threading to run on multiple processors for increased speed 
+
+
 ### Relative Entropy- Applying forces from 3-dimensional density ###
 - In density-guided simulations, additional forces are applied to atoms that depend on the gradient of similarity between a simulated density and a reference density. (GROMACS)
 - Force calculations are based on computing a simulated density and its derivative with respect to the atoms positions, as well as a density-density derivative between the simulated and the reference density (GROMACS)
