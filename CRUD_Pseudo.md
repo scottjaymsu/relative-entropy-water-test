@@ -92,8 +92,11 @@ Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 ### Output.C 
 - Object outputs the data collected on the master node (CollectionMaster)
 
-
-
+### Potential Time Complexity Factors: ###
+	- Pre-determine specific size for subset of atoms when pre-processing simulation
+	- Apply force every N-th step 
+		- Cost of applying forces every integration step is reduced when applying the density-guided simulation forces every N steps 
+			- Frequency must be multiple of N 
 
 <!-- 2. **CREATE** atom selection 
 3. **CREATE** molecule
