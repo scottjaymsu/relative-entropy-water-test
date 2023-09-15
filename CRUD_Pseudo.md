@@ -4,7 +4,7 @@
 - Then, potentially use multi-threading to run on multiple processors for increased speed 
 
 
-### Relative Entropy- Applying forces from 3-dimensional density ###
+### Relative Entropy- Applying Forces from 3-Dimensional Density ###
 - In density-guided simulations, additional forces are applied to atoms that depend on the gradient of similarity between a simulated density and a reference density. (GROMACS)
 - Force calculations are based on computing a simulated density and its derivative with respect to the atoms positions, as well as a density-density derivative between the simulated and the reference density (GROMACS)
 
@@ -20,7 +20,14 @@
 	- F_density = k(∇r)S[p_ref, p_sim(r)]
 	- This derivative decomposes into a similarity measure derivative and a simulated density model derivative, summed over all density voxels
 
-### Understanding Simulated Density's Force Contribution ###
+### Simulated Density's Force Contribution ###
+- Atoms are spared onto 3-dimensional lattice
+	- Discrete Gauss transformation is used to spread atoms on grid between iterations
+		- Spreading width (sigma) should be larger than the grid spacing of the reference density
+
+### Density Similarity Measure's Force Contribution ###
+	- Multiple valid similarity measures between the reference density and the simulated density 
+	- Specific similarity equation needs to be determined from legacy code
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 ### Original implementation notes ###
