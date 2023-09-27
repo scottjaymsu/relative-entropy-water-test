@@ -1,7 +1,6 @@
-# relative-entropy-water-test
 # Notes for later #
 - Test if program runs correctly on one processor 
------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 # Gromacs Annotations #
 https://manual.gromacs.org/current/reference-manual/special/density-guided-simulation.html
 
@@ -27,37 +26,36 @@ https://manual.gromacs.org/current/reference-manual/special/density-guided-simul
 		- Spreading width (sigma) should be larger than the grid spacing of the reference density
 
 ## Density Similarity Measure's Force Contribution ##
-	- Multiple valid similarity measures between the reference density and the simulated density 
+- Multiple valid similarity measures between the reference density and the simulated density 
 	- Specific similarity equation needs to be determined from legacy code
 		1. Inner product of the simulated density 
 		2. Negative relative entropy between two densities
 		3. Cross correlation between two densities
 
 ## Declaring Regions to Fit ##
-	- A subset of atoms are chosen when pre-processing the simulation to which density--guided simulation forces are applied 
+- A subset of atoms are chosen when pre-processing the simulation to which density--guided simulation forces are applied 
 		- Only these atoms generate the simulated density that is compared to the reference density 
 
 ## Performance Factors ##
-	- Number of atoms in density-guided simulation group
-		- N_atoms 
-	- Spreading range in multiples of Gaussian width, N_sigma
-	- Ratio of spreading width to input density grid spacing, r_sigma
-	- Number of voxels of input density, N_voxel
-	- Frequency of force calculations, N_voxel
-	- Communication cost when using multiple ranks c_comm (constant)
+- Number of atoms in density-guided simulation group
+	- N_atoms 
+- Spreading range in multiples of Gaussian width, N_sigma
+- Ratio of spreading width to input density grid spacing, r_sigma
+- Number of voxels of input density, N_voxel
+- Frequency of force calculations, N_voxel
+- Communication cost when using multiple ranks c_comm (constant)
 
 ## Applying force every N-th step (Future Implementation) ##
-	- Cost of applying forces every integration step is reduced when applying the density-guided simulation forces only every N steps 
-	- The energy output frequency would need to be a mulitple of N 
-	- Limitations: 
-		- Applying force every N-th steps does not work with the current implementation of infrequent evaluation of pressure coupling and the constraint virial
+- Cost of applying forces every integration step is reduced when applying the density-guided simulation forces only every N steps 
+- The energy output frequency would need to be a mulitple of N 
+- Limitations: 
+	- Applying force every N-th steps does not work with the current implementation of infrequent evaluation of pressure coupling and the constraint virial
 
 ## Output ##
-	- Energy output file will contain an additional "density-fitting" term 
-		- Energy that is added to the system from the density-guided simulations 
-		- The lower the energy, the higher the similarity between simulated and reference density
-
---------------------------------------------------------------------------------------------------------------------------------------------------
+- Energy output file will contain an additional "density-fitting" term 
+	- Energy that is added to the system from the density-guided simulations 
+	- The lower the energy, the higher the similarity between simulated and reference density
+------------------------------------------------------------------------------------------------------------------------------------------
 # Parallel Programming #
 
 - **Threads model** is a single process (a single program) in which can spawn multiple, concurrent "threads" (sub-programs)
@@ -146,8 +144,8 @@ Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 - Object outputs the data collected on the master node (CollectionMaster)
 
 ## Potential Time Complexity Factors: ##
-	- Pre-determine specific size for subset of atoms when pre-processing simulation
-	- Apply force every N-th step 
-		- Cost of applying forces every integration step is reduced when applying the density-guided simulation forces every N steps 
-			- Frequency must be multiple of N 
+- Pre-determine specific size for subset of atoms when pre-processing simulation
+- Apply force every N-th step 
+	- Cost of applying forces every integration step is reduced when applying the density-guided simulation forces every N steps 
+		- Frequency must be multiple of N 
 
