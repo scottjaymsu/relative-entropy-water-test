@@ -28,7 +28,28 @@
 ### Density Similarity Measure's Force Contribution ###
 	- Multiple valid similarity measures between the reference density and the simulated density 
 	- Specific similarity equation needs to be determined from legacy code
-
+--------------------------------------------------------------------------------------------------------------------------------------------------
+### Parallel Programming ###
+- **Threads model** is a single process (a single program) in which can spawn multiple, concurrent "threads" (sub-programs)
+	- Each thread runs independently of the others while being able to access the same memory space
+- Threads can be spawned and killed by main program 
+- **Process synchronization** is when multiple processess handshake at a certain point in order to commit a certain sequence of action 
+	- Handshake is a signal between two devices or programs used to authenticate/coordinate
+		- Example: hypervisor and an application in a guest virtual machine
+	- Synchronization is found in multi-processor systems or any kind of concurrent processors
+- **Thread synchronization** ensures that two or more concurrent processes or threads do not simultatneously execute some particular program segment known as critical section 
+	- **Critical section/region** is a protected section that cannot be entered by more than one process or thread at a time
+		- Essential for codes or processes that consist of the same variable or other resources that needed to be read or written but whose results depend on the order in which the actions occur
+		- Therefore, other threads are suspended until the first leaves the critical section
+		- Critical Region accesses a shared resources, such as a data structure, a peripheral device, or a network connection that would not operate in the context of multiple concurrent accessses
+- **Potential synchronization methods:**
+	- fork() function
+	- OpenMP
+	- MPI (Message Passing Interface)
+		- Allows user to carry out a computation in parallel on an arbitrary number of coopoerating computers 
+			- User writes a single program which runs on all the computers 
+		- Data on each computer is stored serparately from that stored on the other computers 
+			- Therefore, for data sharing, the computer must explicitly call the appropriate library routine requesting a data transfer 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 ### Original implementation notes ###
 Gridforce notes:
