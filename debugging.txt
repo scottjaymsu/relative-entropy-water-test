@@ -1,0 +1,79 @@
+
+- Parameters seem correct 
+	- # of atoms, bonds, angles, etc.
+- INITIAL FORCE OUTPUT IS IN CORRECT
+	- EXTERNAL - 
+	[[  924.36761226 -5996.9509381   8388.20930747]]
+	- INTERNAL - 
+	- force=-0 -0 -0
+
+********************************
+***          @Time = 0 		 ***
+********************************
+
+
+********************************
+***          external 		 ***
+********************************
+-Analyzing structure ...
+Info)    Atoms: 699
+Info)    Bonds: 466
+Info)    Angles: 233  Dihedrals: 0  Impropers: 0  Cross-terms: 0
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 233
+Info)    Waters: 233
+Info)    Segments: 1
+Info)    Fragments: 233   Protein: 0   Nucleic: 0
+
+Forces are:  [[  924.36761226 -5996.9509381   8388.20930747]]
+GREP Relative Entropy= -18434.545023 took 0.735 seconds, maximum force 103.528
+PRESSURE: 0 1.28488e+06 1.47546e+06 -1.88754e+06 1.47546e+06 3.67706e+06 653813 -1.88754e+06 653813 1.52501e+07
+GPRESSURE: 0 -236518 -2.39902e+06 -4.15414e+06 -415108 -803898 -1.31699e+06 3.24145e+06 1.33339e+07 2.27401e+07
+
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG            PRESSURE      GPRESSURE         VOLUME       PRESSAVG      GPRESSAVG
+
+ENERGY:       0       192.4753        58.4516         0.0000         0.0000          -2158.5470    193913.7716         0.0000         0.0000         0.0000         192006.1515         0.0000    192006.1515    192006.1515         0.0000        6737362.5585   7233237.4029      8000.0000   6737362.5585   7233237.4029
+
+
+********************************
+***          internal  		 ***
+********************************
+test-internal: 
+SUMMARY OF PARAMETERS:
+Info: 5 BONDS
+Info: 2 ANGLES
+Info: 1 DIHEDRAL
+Info: 0 IMPROPER
+Info: 0 CROSSTERM
+Info: 17 VDW
+Info: 0 VDW_PAIRS
+Info: 0 NBTHOLE_PAIRS
+
+Info: STRUCTURE SUMMARY:
+Info: 699 ATOMS
+Info: 466 BONDS
+Info: 233 ANGLES
+Info: 0 DIHEDRALS
+Info: 0 IMPROPERS
+Info: 0 CROSSTERMS
+Info: 0 EXCLUSIONS
+Info: 1 GRIDS ACTIVE
+Info: 2097 DEGREES OF FREEDOM
+Info: 233 HYDROGEN GROUPS
+Info: 3 ATOMS IN LARGEST HYDROGEN GROUP
+Info: 233 MIGRATION GROUPS
+Info: 3 ATOMS IN LARGEST MIGRATION GROUP
+Info: TOTAL MASS = 4197.59 amu
+Info: TOTAL CHARGE = 0 e
+Info: MASS DENSITY = 0.871303 g/cm^3
+Info: ATOM DENSITY = 0.087375 atoms/A^3
+
+
+pos=1.661 6.681 21.943
+force=-0 -0 -0
+PRESSURE: 0 1.28488e+06 1.47546e+06 -1.88754e+06 1.47546e+06 3.67706e+06 653813 -1.88754e+06 653813 1.52501e+07
+GPRESSURE: 0 -236524 -2.39902e+06 -4.15414e+06 -415073 -803904 -1.31699e+06 3.2414e+06 1.33339e+07 2.27401e+07
+
+ETITLE:      TS           BOND          ANGLE          DIHED          IMPRP               ELECT            VDW       BOUNDARY           MISC        KINETIC               TOTAL           TEMP      POTENTIAL         TOTAL3        TEMPAVG            PRESSURE      GPRESSURE         VOLUME       PRESSAVG      GPRESSAVG
+
+ENERGY:       0       192.4753        58.4516         0.0000         0.0000          -2158.5470    193913.7716         0.0000         0.0000         0.0000         192006.1515         0.0000    192006.1515    192006.1515         0.0000        6737362.5585   7233232.9409      8000.0000   6737362.5585   7233232.9409
