@@ -1,6 +1,3 @@
-# Notes for later #
-- Test if program runs correctly on one processor 
-------------------------------------------------------------------------------------------------------------------------------------------
 # Gromacs Annotations #
 https://manual.gromacs.org/current/reference-manual/special/density-guided-simulation.html
 
@@ -149,3 +146,34 @@ Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 	- Cost of applying forces every integration step is reduced when applying the density-guided simulation forces every N steps 
 		- Frequency must be multiple of N 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+# CHARM++ #
+- Parallel programming framework
+	- Represents the style of writing parallel programs
+- Programmer: what to do in parallel
+- System: where, when 
+- Design principles
+	- Overdecomposiiton
+		- Break down work units & data units into more pieces than execution units
+			- Cores/Nodes/...
+	- Migratability
+		- Programmer/Runtime can move work and data units
+			- Runtime must keep track of where each unit is (naming and location management)
+			-Runtime is adaptive
+				- CollectionMaster.C???
+	- Asynchrony
+		- What sequence should the work units execute in?
+			- Sequencer.C???
+		- Message-driven execution:
+			- Work-unit that has data("message") for next node should be executed next
+			- Runtime System selects among ready work units
+			Programmer should not specify what executes next, but can influence it via priorities
+- Charm++ Model
+	- Overdecomposed entiies are chares (C++ objects)
+	- Chares contain methods designated as 'entry' methods 
+		- Methods can be invoked asynchronously by
+		  remote chares 
+	- Chares are organized into indexed collections
+		- organization method is unique to program 
+		- CollectionMaster.C???
+	- Chares communicate via asynchonous method invocations
