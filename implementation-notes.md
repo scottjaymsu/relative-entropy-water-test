@@ -177,3 +177,32 @@ Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 		- organization method is unique to program 
 		- CollectionMaster.C???
 	- Chares communicate via asynchonous method invocations
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+# GridForceGrid.C #
+- Grid object is static 
+- Create/Destroy objects (33)
+- Getter objects (93)
+- Setter objects (96)
+- Fitting/Wrapping Positions in Grid (51)
+- Pack/Unpack grid (51)
+- Grid Type 
+- Compute parent derivatives (1253)
+	- compute_VdV not found in .C???
+
+- GridforceFullBaseGrid
+	- MainGrid class 
+	- Subgrid class
+
+## Compare Test ##
+- Using calcforce.py
+	- Working python version of Relative Entropy
+	- Runs slowly on one processor
+- Write simulated density outputs to data file (.dx) 
+	- calcforce.py: 59
+		- calcForce(mol, sel)
+			- currentGrid == simulated density
+			- write currentGrid to .dx file
+	- GridForce.C: 1728
+		- void GridforceEntropyGrid::calc_sim_density(FloatVector* fcoor, int gridnum)
+			- Parse return into data file (.dx)
