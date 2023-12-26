@@ -206,3 +206,22 @@ Node::Object()->output->coordinate(seq,size,data,fdata,c->lattice);(Output.C)
 	- GridForce.C: 1728
 		- void GridforceEntropyGrid::calc_sim_density(FloatVector* fcoor, int gridnum)
 			- Parse return into data file (.dx)
+
+void GridforceEntropyGrid::WriteSimGrid()
+{
+    // Create file pointer to write simulated density grid to 
+    FILE *sim_fp;
+    sim_fp = fopen("simulated_density_c.txt", "w");
+    fprintf(sim_fp, "%d %d %d \n", get_k0(), get_k1(), get_k2());
+    // Writing x, y , z to file pointer
+    for (int i = 0; i < get_k0(); i++) {
+        for (int j = 0; j < get_k1(); j++) {
+            for (int kk = 0; kk < get_k2(); kk++) {
+                float density_val = simgrid[grid_index(i,j,kk,0)];
+                fprintf(sim_fp, "%f \n", density_val);
+            }
+        }
+    }
+    // Close file pointer
+    fclose(sim_fp);
+}
