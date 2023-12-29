@@ -225,3 +225,8 @@ void GridforceEntropyGrid::WriteSimGrid()
     // Close file pointer
     fclose(sim_fp);
 }
+
+## GridforceEntropyGrid::calc_sim_density ##
+- Called in Output.C (341 - 342)
+- Relative entropy grid constructor needs to be called before doForce 
+- calc_sim_density needs to be called at every timestep, including step 0
